@@ -1,0 +1,110 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const calendly = 'https://calendly.com/systemsbygee/discovery-call-systems-by-gee-clone';
+const title = 'Services & Pricing | Systems by Gee';
+const description = 'GoHighLevel builds, automations, and ongoing systems support. Start with a free audit, then choose Tech On-Deck, a full build, or an embedded systems retainer.';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Service',
+      serviceType: 'GoHighLevel systems and automation',
+      provider: { '@type': 'Person', name: 'Geethika Venkateshan' },
+      areaServed: 'Worldwide',
+      hasOfferCatalog: {
+        '@type': 'OfferCatalog',
+        name: 'Systems by Gee services',
+        itemListElement: [
+          { '@type': 'Offer', name: 'Free GHL Audit', price: '0', priceCurrency: 'USD' },
+          { '@type': 'Offer', name: 'Tech On-Deck Support', priceCurrency: 'USD', price: '497' },
+          { '@type': 'Offer', name: 'Gee, Build My Systems', priceCurrency: 'USD', price: '1500' },
+          { '@type': 'Offer', name: 'Hire Me As Your Systems Expert', priceCurrency: 'USD', price: '1200' }
+        ]
+      }
+    },
+    {
+      '@type': 'FAQPage',
+      mainEntity: [
+        { '@type': 'Question', name: 'How much does it cost to work with Systems by Gee?', acceptedAnswer: { '@type': 'Answer', text: 'The free audit is free. Tech On-Deck Support starts at $497 per month, one-time builds start at $1,500, and the embedded systems retainer starts at $1,200 per month with a three-month minimum. Final pricing depends on scope.' } },
+        { '@type': 'Question', name: 'What is the free audit?', acceptedAnswer: { '@type': 'Answer', text: 'A no-pressure look under the hood of your current systems. You walk away knowing exactly what is costing you time and leads, and what to fix first. No pitch.' } }
+      ]
+    }
+  ]
+};
+---
+<Layout title={title} description={description} jsonLd={jsonLd}>
+
+  <section class="hero">
+    <div class="container">
+      <span class="eyebrow">Services &amp; Pricing</span>
+      <h1>Pick the level of support your business needs.</h1>
+      <p class="lead">Everything starts with a free audit. From there, you choose how far we go: a pro on standby, a full build, or me embedded as your right hand.</p>
+      <div class="hero-cta" style="margin-top: 28px;"><a href={calendly} class="btn btn--primary">Start with a free audit</a></div>
+    </div>
+  </section>
+
+  <section class="section section--sand">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">The front door</span>
+        <h2>Free GHL Audit</h2>
+        <p class="lead">Not sure where your systems are leaking? I look under the hood, free. You walk away knowing exactly what is costing you time and leads, and what to fix first. No pitch, no pressure.</p>
+      </div>
+      <a href={calendly} class="btn btn--primary">Book your free audit</a>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Ways to work together</span>
+        <h2>Three ways in, one goal: a backend that runs itself.</h2>
+      </div>
+      <div class="grid grid--3">
+        <div class="card reveal">
+          <h3>Tech On-Deck Support</h3>
+          <div class="price">from $497/mo</div>
+          <p>You have systems. You just want someone who knows their stuff on standby. An automation breaks, you message me. Something errors out, you message me. No full project, no spinning up a whole retainer. Just a pro on deck when you need one.</p>
+        </div>
+        <div class="card reveal">
+          <h3>Gee, Build My Systems</h3>
+          <div class="price">from $1,500</div>
+          <p>You do not want to build it. You want it done. I build your whole backend from scratch: GHL setup, automations, funnels, calendars, migrations, all of it, wired around how your business actually works. Available as a Starter Build or a Full Build.</p>
+        </div>
+        <div class="card reveal" style="border-color: var(--emerald); border-width: 2px;">
+          <span class="pill">Most popular</span>
+          <h3 style="margin-top:12px;">Hire Me As Your Systems Expert</h3>
+          <div class="price">from $1,200/mo</div>
+          <p>The dream teammate every founder wishes they had. I am embedded in your business as your operational right hand. I fix what is broken, build what is missing, and strategize what is next. You do not micromanage me. You just know it is handled.</p>
+        </div>
+      </div>
+
+      <div class="card reveal" style="margin-top: 20px; text-align: center;">
+        <span class="eyebrow">Something else in mind?</span>
+        <h3 style="margin: 10px 0 8px;">Custom &amp; project-based work</h3>
+        <p style="max-width: 60ch; margin: 0 auto 18px;">Need something specific that does not fit a package? A one-off automation, a custom portal, an integration, a build nobody else will take on. Drop me a request and I will get back to you with a custom quote.</p>
+        <a href={calendly} class="btn btn--secondary">Send a request</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--sand">
+    <div class="container">
+      <div class="section-head reveal"><span class="eyebrow">Common questions</span><h2>Pricing, plainly.</h2></div>
+      <div class="faq-item"><h3>How much does it cost?</h3><p>The audit is free. Tech On-Deck starts at $497/mo, one-time builds start at $1,500, and the embedded retainer starts at $1,200/mo with a three-month minimum. Final pricing depends on scope, which we figure out on the audit call.</p></div>
+      <div class="faq-item"><h3>Do you offer ads or other tech work?</h3><p>Yes, I also handle ads setup and management for retainer clients, plus migrations, AI agents, and web and app builds. Mention what you need on the audit call.</p></div>
+      <div class="faq-item"><h3>Where are your clients based?</h3><p>Worldwide. I work with founders across the US, UK, India, and the Philippines, priced in USD.</p></div>
+    </div>
+  </section>
+
+  <section class="section section--ink">
+    <div class="container text-center">
+      <h2 style="max-width: 20ch; margin: 0 auto 16px;">Not sure which one fits? Start with the audit.</h2>
+      <p class="lead" style="margin: 0 auto 28px;">We will figure out exactly what your business needs, together.</p>
+      <a href={calendly} class="btn btn--secondary">Book a free audit</a>
+    </div>
+  </section>
+
+</Layout>

@@ -1,0 +1,14 @@
+# dependencies
+node_modules/
+# build output
+dist/
+.astro/
+# source photos (kept locally, not deployed)
+_source-photos/
+# os / editor
+.DS_Store
+*.log
+npm-debug.log*
+.vscode/
+.env
+.env.*

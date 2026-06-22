@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Blog | Systems by Gee</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="src/styles/global.css" />
+</head>
+<body>
+<header class="site-header">
+  <div class="container nav">
+    <a href="preview-home.html" class="brand">Systems by Gee</a>
+    <ul class="nav-links">
+      <li><a href="preview-services.html">Services</a></li>
+      <li><a href="preview-case-studies.html" class="hide-mobile">Case Studies</a></li>
+      <li><a href="preview-about.html">About</a></li>
+      <li><a href="preview-blog.html" class="hide-mobile">Blog</a></li>
+      <li><a href="#" class="btn btn--primary">Free audit</a></li>
+    </ul>
+  </div>
+</header>
+<main>
+  <section class="hero">
+    <div class="container">
+      <h1>Systems, plainly.</h1>
+      <p class="lead">No-fluff writing on GoHighLevel, automations, and the backend that lets you finally breathe.</p>
+    </div>
+  </section>
+  <section class="section section--sand">
+    <div class="container">
+      <div class="blog-grid">
+        <a href="preview-blog-post.html" class="blog-card blog-card--feature reveal">
+          <div class="thumb" style="background-image:url('public/images/blog-ghl.jpg')"></div>
+          <div class="body">
+            <span class="tag tag--emerald" style="align-self:flex-start;">GoHighLevel</span>
+            <h2>Why your GHL setup is costing you clients without you knowing it</h2>
+            <p>Most GHL accounts are not broken in a way you can see. They are broken in a way you feel: the leads that go quiet, the follow-ups you forgot. Here are the 3 mistakes I see in almost every account.</p>
+            <p class="meta">Jun 22, 2026 &middot; 4 min read</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div style="max-width:340px;">
+        <a href="preview-home.html" class="brand">Systems by Gee</a>
+        <p style="color:#C9C7C1;font-size:0.95rem;">GHL and systems strategist. I build the backend that finally lets you breathe.</p>
+        <div class="socials">
+          <a href="https://www.linkedin.com/in/geethika-12in/" aria-label="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5.001A2.5 2.5 0 014.98 3.5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C20.4 8.65 21 11 21 14.3V21h-4v-5.9c0-1.4 0-3.2-2-3.2s-2.3 1.5-2.3 3.1V21H9z"/></svg></a>
+          <a href="https://www.instagram.com/systemsbygee/" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+          <a href="https://www.threads.com/@systemsbygee" aria-label="Threads"><span style="font-family:var(--font-head);font-weight:600;font-size:1.1rem;">@</span></a>
+          <a href="mailto:systemsbygee@gmail.com" aria-label="Email"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></a>
+        </div>
+      </div>
+      <ul class="footer-links">
+        <li><a href="preview-services.html">Services</a></li><li><a href="preview-case-studies.html">Case Studies</a></li><li><a href="preview-about.html">About</a></li><li><a href="preview-blog.html">Blog</a></li><li><a href="#">Book a free audit</a></li>
+      </ul>
+    </div>
+    <div class="footer-bottom">&copy; 2026 Systems by Gee. Built for coaches, founders, and service businesses worldwide.</div>
+  </div>
+</footer>
+<script>
+  const io = new IntersectionObserver((entries)=>{entries.forEach((e)=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0.12});
+  document.querySelectorAll('.reveal').forEach((el)=>io.observe(el));
+</script>
+</body>
+</html>

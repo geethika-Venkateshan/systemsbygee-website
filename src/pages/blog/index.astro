@@ -1,0 +1,58 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const title = 'Blog | Systems by Gee';
+const description = 'Practical, no-fluff writing on GoHighLevel, automations, and the systems that let founders stop surviving their business and start leading it.';
+
+const posts = [
+  {
+    slug: 'why-your-ghl-setup-is-costing-you-clients',
+    title: 'Why your GHL setup is costing you clients without you knowing it',
+    excerpt: 'Most GHL accounts are not broken in a way you can see. They are broken in a way you feel: the leads that go quiet, the follow-ups you forgot. Here are the 3 mistakes I see in almost every account.',
+    date: 'Jun 22, 2026',
+    read: '4 min read',
+    tag: 'GoHighLevel',
+    image: '/images/blog-ghl.jpg'
+  }
+];
+
+const feature = posts[0];
+const rest = posts.slice(1);
+---
+<Layout title={title} description={description}>
+
+  <section class="hero">
+    <div class="container">
+      <h1>Systems, plainly.</h1>
+      <p class="lead">No-fluff writing on GoHighLevel, automations, and the backend that lets you finally breathe.</p>
+    </div>
+  </section>
+
+  <section class="section section--sand">
+    <div class="container">
+      <div class="blog-grid">
+        <a href={`/blog/${feature.slug}/`} class="blog-card blog-card--feature reveal">
+          <div class="thumb" style={`background-image:url('${feature.image}')`}></div>
+          <div class="body">
+            <span class="tag tag--emerald" style="align-self:flex-start;">{feature.tag}</span>
+            <h2>{feature.title}</h2>
+            <p>{feature.excerpt}</p>
+            <p class="meta">{feature.date} &middot; {feature.read}</p>
+          </div>
+        </a>
+        {rest.map((post) => (
+          <a href={`/blog/${post.slug}/`} class="blog-card reveal">
+            <div class="thumb" style={`background-image:url('${post.image}')`}></div>
+            <div class="body">
+              <span class="tag tag--emerald">{post.tag}</span>
+              <h2>{post.title}</h2>
+              <p>{post.excerpt}</p>
+              <p class="meta">{post.date} &middot; {post.read}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+</Layout>

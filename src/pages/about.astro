@@ -1,0 +1,72 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const title = 'About Gee | The Systems Strategist Who Never Ghosts';
+const description = 'Gee started at 21 building websites and apps, then became a GHL and systems strategist by following the problems her clients actually had. Here is her story.';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'AboutPage',
+  mainEntity: {
+    '@type': 'Person',
+    name: 'Geethika Venkateshan',
+    alternateName: 'Gee',
+    jobTitle: 'GHL & Systems Strategist',
+    description: 'GoHighLevel and systems strategist who builds the business backend that lets founders breathe.',
+    knowsAbout: ['GoHighLevel', 'Business automation', 'Web development', 'App development', 'CRM setup', 'Systems strategy'],
+    url: 'https://systemsbygee.com/about/'
+  }
+};
+---
+<Layout title={title} description={description} jsonLd={jsonLd}>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="reveal">
+          <h1>I build the backend that finally lets you breathe.</h1>
+          <p class="lead">I am Gee, a GHL and systems strategist. I did not pick this niche off a list. I followed the problems my clients actually had, and they led me here.</p>
+          <div class="hero-cta"><a href="#audit" class="btn btn--primary js-audit">Book a free audit</a></div>
+        </div>
+        <div class="reveal">
+          <div class="hero-photo" style="background-image:url('/images/about.jpg');"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--sand">
+    <div class="container prose reveal" style="max-width: 760px;">
+      <h2 style="margin-bottom: 20px;">My story</h2>
+      <p>I started young. I was 21, still in my final year of university, already building websites and apps for real clients.</p>
+      <p>The tech VA work started as a side thing, freelance gigs alongside the dev work. But something kept happening. Clients did not want to let me go.</p>
+      <p>Not because I ticked boxes fast. Because I actually solved things. A broken automation, a system held together with tape, a process nobody had time to fix. I would dig in and sort it. And I never ghosted. Ever. In a space where half the tech VAs disappear mid-project, just showing up consistently turned out to be rare.</p>
+      <p>So clients kept pulling me deeper into their businesses. "Can you fix this?" became "Can you figure out why this keeps breaking?" became "Can you just own this whole system?"</p>
+      <p>That is how the work evolved on its own. From tech VA, to building systems, to GoHighLevel expert and systems strategist.</p>
+      <p>And here is what makes me different, then and now. I do not work through your to-do list. I work alongside your business. I fix the system, then I strategize the next one. I am thinking about what breaks next, not just what you asked me to do today.</p>
+      <p style="margin-bottom: 0;">You did not build your business to become its full-time admin. You built it to lead. I build the backend that lets you do exactly that.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head reveal">
+        <h2>How I show up.</h2>
+      </div>
+      <div class="grid grid--3">
+        <div class="card reveal"><h3>I solve, not just do</h3><p>I do not tick boxes. I find why something keeps breaking and fix it at the root.</p></div>
+        <div class="card reveal"><h3>I never ghost</h3><p>You will always know where things stand. Consistency is rarer than it should be, and it is non-negotiable for me.</p></div>
+        <div class="card reveal"><h3>I work alongside you</h3><p>You work directly with me, never an agency, never handed to a junior. I am your operational right hand.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--ink">
+    <div class="container text-center reveal">
+      <h2 style="max-width: 20ch; margin: 0 auto 16px;">Let us build the business that has your back.</h2>
+      <p class="lead" style="margin: 0 auto 28px;">Start with a free audit. No pitch, no pressure.</p>
+      <a href="#audit" class="btn btn--secondary js-audit">Book a free audit</a>
+    </div>
+  </section>
+
+</Layout>
