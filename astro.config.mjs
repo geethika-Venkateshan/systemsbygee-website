@@ -1,5 +1,5 @@
 import { defineConfig } from 'astro/config';
 
 export default defineConfig({
-  site: 'https://systemsbygee.com',
+  site: 'https://systemsbygee.netlify.app',
 });

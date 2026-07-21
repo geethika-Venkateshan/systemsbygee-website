@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://systemsbygee.com/sitemap.xml
+Sitemap: https://systemsbygee.netlify.app/sitemap.xml
