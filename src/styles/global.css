@@ -274,8 +274,7 @@ a:hover { text-decoration: underline; }
 .btn--cta { cursor: pointer; border: 0; }
 
 /* ===== Blog ===== */
-.blog-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; }
-@media (max-width: 720px) { .blog-grid { grid-template-columns: 1fr; } }
+.blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px; }
 .blog-card { display: flex; flex-direction: column; background: #FFFFFF; border: 0.5px solid var(--line); border-radius: 16px; overflow: hidden; transition: transform 0.18s ease, box-shadow 0.18s ease; }
 .blog-card:hover { transform: translateY(-3px); box-shadow: 0 16px 34px -20px rgba(28,27,25,0.4); text-decoration: none; }
 .blog-card .thumb { aspect-ratio: 16 / 9; background: var(--sand) center / cover no-repeat; }
