@@ -6,4 +6,5 @@
   <url><loc>https://systemsbygee.netlify.app/case-studies/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://systemsbygee.netlify.app/blog/</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://systemsbygee.netlify.app/blog/why-your-ghl-setup-is-costing-you-clients/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://systemsbygee.netlify.app/blog/what-your-business-backend-should-look-like/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
 </urlset>
