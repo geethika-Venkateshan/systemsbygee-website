@@ -1,0 +1,418 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A Gift for You | Systems by Gee</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="4 years of Systems by Gee. Spin the wheel to unwrap your gift.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #FAF5EE;
+    --ink: #1C1B19;
+    --ink-soft: #57534c;
+    --emerald: #0F6E56;
+    --emerald-deep: #0a5543;
+    --clay: #C36B47;
+    --sand: #EDE3D5;
+    --gold: #C9A35B;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 40px 16px 56px;
+    text-align: center;
+  }
+  .brand {
+    font-family: "Fraunces", Georgia, serif;
+    font-weight: 600;
+    font-size: 18px;
+    color: var(--emerald);
+    text-decoration: none;
+    letter-spacing: .2px;
+  }
+  .eyebrow {
+    margin: 28px 0 10px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2.4px;
+    text-transform: uppercase;
+    color: var(--clay);
+  }
+  h1 {
+    font-family: "Fraunces", Georgia, serif;
+    font-weight: 600;
+    font-size: clamp(30px, 7vw, 44px);
+    line-height: 1.12;
+    margin: 0 0 14px;
+  }
+  h1 em { font-style: italic; color: var(--emerald); font-weight: 600; }
+  .lede {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    margin: 0 auto 28px;
+    max-width: 460px;
+  }
+
+  /* Wheel */
+  .wheel-box {
+    position: relative;
+    width: min(420px, 88vw);
+    aspect-ratio: 1;
+    margin: 8px auto 28px;
+  }
+  .wheel-box::before {
+    content: "";
+    position: absolute;
+    inset: -10px;
+    border-radius: 50%;
+    background: var(--sand);
+    box-shadow: 0 18px 40px rgba(28, 27, 25, .12);
+  }
+  #wheel {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+  #spinner {
+    transform-origin: 200px 200px;
+    transition: transform 5.2s cubic-bezier(.12, .72, .14, 1);
+  }
+  .pointer {
+    position: absolute;
+    top: -22px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 34px;
+    height: 44px;
+    z-index: 2;
+    filter: drop-shadow(0 3px 4px rgba(0,0,0,.18));
+  }
+
+  .btn {
+    appearance: none;
+    border: 0;
+    cursor: pointer;
+    background: var(--emerald);
+    color: #fff;
+    font: 600 16px/1 "Inter", sans-serif;
+    padding: 17px 38px;
+    border-radius: 999px;
+    box-shadow: 0 8px 20px rgba(15, 110, 86, .28);
+    transition: background .2s, transform .2s;
+  }
+  .btn:hover { background: var(--emerald-deep); transform: translateY(-1px); }
+  .btn:disabled { opacity: .55; cursor: default; transform: none; }
+  .btn:focus-visible { outline: 3px solid var(--clay); outline-offset: 3px; }
+
+  /* Result */
+  .result {
+    display: none;
+    margin: 4px auto 0;
+    max-width: 480px;
+    background: #fff;
+    border: 1px solid var(--sand);
+    border-radius: 20px;
+    padding: 30px 24px;
+    box-shadow: 0 14px 34px rgba(28, 27, 25, .08);
+    animation: rise .6s ease both;
+  }
+  .result.show { display: block; }
+  @keyframes rise { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+  .result .tag {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--clay);
+    margin: 0 0 10px;
+  }
+  .result h2 {
+    font-family: "Fraunces", Georgia, serif;
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 1.2;
+    margin: 0 0 12px;
+    color: var(--emerald);
+  }
+  .result p {
+    font-size: 15.5px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    margin: 0 0 10px;
+  }
+  .result .next {
+    margin-top: 18px;
+    padding-top: 16px;
+    border-top: 1px dashed var(--sand);
+    font-size: 14.5px;
+    color: var(--ink);
+  }
+  .sig {
+    font-family: "Fraunces", Georgia, serif;
+    font-style: italic;
+    font-size: 18px;
+    color: var(--ink);
+    margin-top: 6px;
+  }
+  footer {
+    margin-top: 44px;
+    font-size: 13px;
+    color: var(--ink-soft);
+  }
+  footer a { color: var(--emerald); text-decoration: none; font-weight: 500; }
+
+  /* Confetti */
+  .confetti {
+    position: fixed;
+    top: -12px;
+    width: 9px;
+    height: 14px;
+    border-radius: 2px;
+    pointer-events: none;
+    z-index: 9;
+    animation: fall linear forwards;
+  }
+  @keyframes fall {
+    to { transform: translateY(105vh) rotate(720deg); opacity: .9; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #spinner { transition-duration: 1.2s; }
+    .confetti { display: none; }
+    .result { animation: none; }
+  }
+</style>
+</head>
+<body>
+  <main class="wrap">
+    <a class="brand" href="https://systemsbygee.netlify.app/">Systems by Gee</a>
+
+    <p class="eyebrow">4 years of building with founders</p>
+    <h1 id="headline">A little gift, <em>just for you.</em></h1>
+    <p class="lede" id="lede">Four years ago I left corporate life to start this journey. To say thank you, I made you a wheel. Give it a spin and see what you unwrap.</p>
+
+    <div class="wheel-box">
+      <svg class="pointer" viewBox="0 0 34 44" aria-hidden="true">
+        <path d="M17 44 L2 10 A16 16 0 1 1 32 10 Z" fill="#1C1B19"/>
+        <circle cx="17" cy="15" r="6" fill="#C36B47"/>
+      </svg>
+      <svg id="wheel" viewBox="0 0 400 400" role="img" aria-label="Gift wheel with four prizes">
+        <g id="spinner"></g>
+        <circle cx="200" cy="200" r="46" fill="#FAF5EE" stroke="#EDE3D5" stroke-width="6"/>
+        <text x="200" y="196" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="19" font-weight="700" fill="#0F6E56">Gee</text>
+        <text x="200" y="216" text-anchor="middle" font-family="Inter, sans-serif" font-size="9.5" font-weight="600" letter-spacing="1.6" fill="#C36B47">4 YEARS</text>
+      </svg>
+    </div>
+
+    <button class="btn" id="spinBtn" type="button">Spin the wheel</button>
+
+    <section class="result" id="result" aria-live="polite">
+      <p class="tag">You unwrapped</p>
+      <h2 id="prizeTitle"></h2>
+      <p id="prizeDesc"></p>
+      <p class="next" id="nextStep"></p>
+      <p class="sig">With gratitude, Gee</p>
+    </section>
+
+    <footer>
+      Made with love by <a href="https://systemsbygee.netlify.app/">Systems by Gee</a>
+    </footer>
+  </main>
+
+  <!-- Netlify Forms: Gee gets a notification for every spin. Keep this static so Netlify detects it at deploy. -->
+  <form name="gift-spins" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden>
+    <input type="hidden" name="form-name" value="gift-spins">
+    <input type="text" name="bot-field">
+    <input type="text" name="name">
+    <input type="text" name="prize">
+    <input type="text" name="spun_at">
+    <input type="text" name="link">
+  </form>
+
+<script>
+(function () {
+  // Prizes. "code" is what goes in a personal link (?t=...).
+  var PRIZES = {
+    vip:    { code: "v1", label: "1 Free VIP Day", title: "1 Free VIP Day",
+              desc: "A full day of me inside your business, building, fixing and untangling whatever needs it most." },
+    audit:  { code: "a2", label: "Free Systems Audit", title: "A Free Systems Audit",
+              desc: "I look under the hood of your business and show you exactly what is costing you time and leads." },
+    build:  { code: "b3", label: "3 Days of Me", title: "3 Days of Me",
+              desc: "3 days of me fixing or building one thing in your business. You pick it, I build it." },
+    coffee: { code: "c4", label: "Coffee Chat", title: "Let's Have a Coffee Chat",
+              desc: "Girl, I just want to meet you! Grab your favourite cup and let's chat." }
+  };
+  // Wheel order (8 slices, each prize twice). Colors follow the brand palette.
+  var SLICES = [
+    { key: "vip",    fill: "#0F6E56", text: "#FAF5EE" },
+    { key: "audit",  fill: "#EDE3D5", text: "#1C1B19" },
+    { key: "build",  fill: "#C36B47", text: "#FAF5EE" },
+    { key: "coffee", fill: "#FFFFFF", text: "#0F6E56" },
+    { key: "vip",    fill: "#0F6E56", text: "#FAF5EE" },
+    { key: "audit",  fill: "#EDE3D5", text: "#1C1B19" },
+    { key: "build",  fill: "#C36B47", text: "#FAF5EE" },
+    { key: "coffee", fill: "#FFFFFF", text: "#0F6E56" }
+  ];
+
+  var params = new URLSearchParams(location.search);
+  var rawName = (params.get("n") || "").trim().slice(0, 40);
+  var name = rawName.replace(/[<>]/g, "");
+  var forcedCode = (params.get("t") || "").trim();
+  var forcedKey = null;
+  Object.keys(PRIZES).forEach(function (k) { if (PRIZES[k].code === forcedCode) forcedKey = k; });
+
+  var storeKey = "sbg-gift-" + (name || "guest").toLowerCase();
+
+  // Personalise the copy
+  if (name) {
+    document.getElementById("headline").innerHTML = "";
+    var h = document.getElementById("headline");
+    h.appendChild(document.createTextNode(name + ", this one's "));
+    var em = document.createElement("em");
+    em.textContent = "just for you.";
+    h.appendChild(em);
+  }
+
+  // Draw the wheel
+  var NS = "http://www.w3.org/2000/svg";
+  var spinner = document.getElementById("spinner");
+  var R = 190, C = 200, N = SLICES.length, STEP = 360 / N;
+
+  function pt(angleDeg, r) {
+    var a = (angleDeg - 90) * Math.PI / 180;
+    return [C + r * Math.cos(a), C + r * Math.sin(a)];
+  }
+
+  SLICES.forEach(function (s, i) {
+    var a0 = i * STEP, a1 = (i + 1) * STEP;
+    var p0 = pt(a0, R), p1 = pt(a1, R);
+    var path = document.createElementNS(NS, "path");
+    path.setAttribute("d", "M" + C + " " + C + " L" + p0[0] + " " + p0[1] +
+      " A" + R + " " + R + " 0 0 1 " + p1[0] + " " + p1[1] + " Z");
+    path.setAttribute("fill", s.fill);
+    path.setAttribute("stroke", "#FAF5EE");
+    path.setAttribute("stroke-width", "3");
+    spinner.appendChild(path);
+
+    var mid = a0 + STEP / 2;
+    var tp = pt(mid, R * 0.64);
+    var t = document.createElementNS(NS, "text");
+    t.setAttribute("x", tp[0]);
+    t.setAttribute("y", tp[1]);
+    t.setAttribute("fill", s.text);
+    t.setAttribute("font-family", "Inter, sans-serif");
+    t.setAttribute("font-size", "12.5");
+    t.setAttribute("font-weight", "600");
+    t.setAttribute("text-anchor", "middle");
+    t.setAttribute("dominant-baseline", "middle");
+    // Read outward from the centre
+    var rot = mid > 180 ? mid + 90 : mid - 90; // keep left-side labels upright
+    t.setAttribute("transform", "rotate(" + rot + " " + tp[0] + " " + tp[1] + ")");
+    t.textContent = PRIZES[s.key].label;
+    spinner.appendChild(t);
+  });
+
+  // Outer ring dots
+  for (var d = 0; d < N * 2; d++) {
+    var dp = pt(d * STEP / 2, R - 1);
+    var dot = document.createElementNS(NS, "circle");
+    dot.setAttribute("cx", dp[0]); dot.setAttribute("cy", dp[1]);
+    dot.setAttribute("r", "3.2"); dot.setAttribute("fill", "#C9A35B");
+    spinner.appendChild(dot);
+  }
+
+  var btn = document.getElementById("spinBtn");
+
+  function showResult(key, saved) {
+    var p = PRIZES[key];
+    document.getElementById("prizeTitle").textContent = p.title;
+    document.getElementById("prizeDesc").textContent = p.desc;
+    document.getElementById("nextStep").textContent = saved === "failed"
+      ? "Just reply to my email and let me know what you got. I'll send over all the details."
+      : "I've just been notified, so keep an eye on your inbox. I'll send over all the details soon.";
+    document.getElementById("result").classList.add("show");
+    btn.style.display = "none";
+  }
+
+  function notifyGee(key) {
+    var body = new URLSearchParams({
+      "form-name": "gift-spins",
+      "name": name || "Unknown",
+      "prize": PRIZES[key].title,
+      "spun_at": new Date().toISOString(),
+      "link": location.href
+    });
+    return fetch(location.pathname, {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: body.toString()
+    }).then(function (r) { if (!r.ok) throw new Error("form " + r.status); });
+  }
+
+  function confetti() {
+    var colors = ["#0F6E56", "#C36B47", "#C9A35B", "#EDE3D5"];
+    for (var i = 0; i < 70; i++) {
+      var c = document.createElement("span");
+      c.className = "confetti";
+      c.style.left = Math.random() * 100 + "vw";
+      c.style.background = colors[i % colors.length];
+      c.style.animationDuration = (2.2 + Math.random() * 1.8) + "s";
+      c.style.animationDelay = (Math.random() * 0.5) + "s";
+      document.body.appendChild(c);
+      setTimeout(function (el) { el.remove(); }.bind(null, c), 4800);
+    }
+  }
+
+  // Already spun on this device? Show the same result, no second notification.
+  var previous = null;
+  try { previous = JSON.parse(localStorage.getItem(storeKey) || "null"); } catch (e) {}
+  if (previous && PRIZES[previous.key]) {
+    var land = SLICES.findIndex(function (s) { return s.key === previous.key; });
+    spinner.style.transition = "none";
+    spinner.style.transform = "rotate(" + (360 - (land * STEP + STEP / 2)) + "deg)";
+    showResult(previous.key, previous.saved);
+  }
+
+  btn.addEventListener("click", function () {
+    btn.disabled = true;
+    btn.textContent = "Spinning...";
+
+    var key = forcedKey || Object.keys(PRIZES)[Math.floor(Math.random() * 4)];
+    var options = [];
+    SLICES.forEach(function (s, i) { if (s.key === key) options.push(i); });
+    var idx = options[Math.floor(Math.random() * options.length)];
+
+    var jitter = (Math.random() - 0.5) * (STEP * 0.6);
+    var target = 360 * 6 + (360 - (idx * STEP + STEP / 2)) + jitter;
+    spinner.style.transform = "rotate(" + target + "deg)";
+
+    var sent = notifyGee(key).then(function () { return "ok"; }, function () { return "failed"; });
+
+    var dur = window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 1300 : 5400;
+    setTimeout(function () {
+      sent.then(function (status) {
+        try { localStorage.setItem(storeKey, JSON.stringify({ key: key, saved: status })); } catch (e) {}
+        confetti();
+        showResult(key, status);
+      });
+    }, dur);
+  });
+})();
+</script>
+</body>
+</html>
